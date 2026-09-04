@@ -206,8 +206,6 @@
       repeating-linear-gradient(90deg, transparent, transparent 39px, var(--gray-line) 39px, var(--gray-line) 40px);
     background-size:100% 100%, 40px 40px, 40px 40px;
     background-position:center, center, center;
-    -webkit-mask-image:radial-gradient(ellipse 90% 70% at 60% 30%, black 40%, transparent 85%);
-    mask-image:radial-gradient(ellipse 90% 70% at 60% 30%, black 40%, transparent 85%);
   }
   .hero-inner{
     max-width:var(--maxw);
@@ -291,6 +289,13 @@
     align-items:center;
     justify-content:center;
   }
+.hero-portrait img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
   .hero-portrait .frame-label{
     position:absolute;
     bottom:16px; left:16px; right:16px;
@@ -392,7 +397,8 @@
   .work-card:hover{box-shadow:0 10px 30px rgba(11,37,69,0.1); transform:translateY(-3px);}
 
   .work-thumb{
-    height:150px;
+    height: 300px;
+    overflow: hidden;
     background:
       repeating-linear-gradient(45deg, var(--navy), var(--navy) 10px, var(--navy-deep) 10px, var(--navy-deep) 20px);
     display:flex;
@@ -404,6 +410,13 @@
     font-size:12.5px;
     letter-spacing:0.03em;
     position:relative;
+  }
+
+  .work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   .work-thumb span{
     background:rgba(11,37,69,0.75);
@@ -619,20 +632,17 @@
       <p class="desc">Registered Civil Engineer and Registered Master Plumber specializing in quantity takeoffs, detailed cost estimates, BOQs, technical documentation, and project support for infrastructure, building, and industrial projects.</p>
       <div class="btn-row">
         <a href="#work" class="btn btn-primary" id="viewWorkBtn">View My Work</a>
-        <a href="#" class="btn btn-outline" id="resumeBtn">Download Résumé</a>
+        <a href="Files/neildean-ordinario-resume.pdf"
+   class="btn btn-outline"
+   id="resumeBtn"
+   download>Download Résumé</a>
       </div>
       <div class="availability"><span class="dot"></span>Open to remote construction estimating and project-support opportunities.</div>
     </div>
     <div class="hero-portrait">
-      <div class="placeholder-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
-        Portrait to be supplied
-      </div>
-      <div class="frame-label">
-        <span>PHOTO PLACEHOLDER</span>
-        <span>4:5</span>
-      </div>
-    </div>
+  <img src="Images/profile.jpg"
+       alt="Neildean E. Ordinario, RCE, RMP">
+</div>
   </div>
 </section>
 
@@ -671,27 +681,32 @@
     <div class="work-grid">
 
       <div class="work-card">
-        <div class="work-thumb"><span>Technical Sample — Placeholder</span></div>
+        <div class="work-thumb">
+  <img src="Images/diversion-tunnel.png"
+       alt="Diversion tunnel quantity takeoff and detailed estimate">
+</div>
         <div class="work-body">
           <div class="work-cat">Infrastructure Estimating</div>
           <h3>TRMP High-Dam Diversion Tunnel Estimate</h3>
           <p class="desc">Preparation of detailed quantities and cost estimates for the proposed diversion-tunnel components of the Tumauini River Multipurpose Project.</p>
           <div class="work-meta">
-            <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Estimating Support</span></div>
+            <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Quantity & Cost Estimating</span></div>
             <div class="work-meta-row"><span class="k">Focus</span><span class="v">Quantity takeoff, cost estimating, plan interpretation, and supporting technical documents.</span></div>
             <div class="tag-row"><span class="tag">AutoCAD</span><span class="tag">Excel</span></div>
           </div>
         </div>
       </div>
-
       <div class="work-card">
-        <div class="work-thumb"><span>Technical Sample — Placeholder</span></div>
+        <div class="work-thumb">
+  <img src="Images/retaining-wall.png"
+       alt="Afterbay dam retaining wall quantity takeoff and detailed estimate">
+</div>
         <div class="work-body">
           <div class="work-cat">Structural &amp; Infrastructure Estimating</div>
           <h3>TRMP Afterbay-Dam Retaining Wall Estimate</h3>
           <p class="desc">Preparation of material quantities and detailed estimates for the proposed retaining-wall components of the afterbay dam.</p>
           <div class="work-meta">
-            <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Estimating Support</span></div>
+            <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Quantity & Cost Estimating</span></div>
             <div class="work-meta-row"><span class="k">Focus</span><span class="v">Concrete, reinforcing steel, formwork quantities, cost analysis, and technical documentation.</span></div>
             <div class="tag-row"><span class="tag">AutoCAD</span><span class="tag">Excel</span></div>
           </div>
@@ -699,7 +714,10 @@
       </div>
 
       <div class="work-card">
-        <div class="work-thumb"><span>Field Photo — Placeholder</span></div>
+        <div class="work-thumb">
+  <img src="Images/lookout-tower.jpg"
+       alt="Steel lookout tower construction and project monitoring">
+</div>
         <div class="work-body">
           <div class="work-cat">Project Monitoring &amp; Site Supervision</div>
           <h3>Steel Lookout Tower Construction</h3>
@@ -713,13 +731,16 @@
       </div>
 
       <div class="work-card">
-        <div class="work-thumb"><span>Technical Sample — Placeholder</span></div>
+        <div class="work-thumb">
+  <img src="Images/access-road.png"
+       alt="Access road, canal structure, and slope protection planning">
+</div>
         <div class="work-body">
           <div class="work-cat">Civil Works</div>
           <h3>Access Roads, Canal Structures, and Slope Protection</h3>
           <p class="desc">Planning, quantity preparation, drawing development, and technical-document support for access roads, drainage structures, canal structures, and slope-protection works.</p>
           <div class="work-meta">
-            <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Planning &amp; Drafting Support</span></div>
+            <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Planning &amp; Design</span></div>
             <div class="work-meta-row"><span class="k">Focus</span><span class="v">AutoCAD drafting, quantity calculations, Programs of Work, BOQs, and unit cost derivations.</span></div>
             <div class="tag-row"><span class="tag">AutoCAD</span><span class="tag">BOQ</span></div>
           </div>
@@ -727,7 +748,10 @@
       </div>
 
       <div class="work-card">
-        <div class="work-thumb"><span>Field Photo — Placeholder</span></div>
+        <div class="work-thumb">
+  <img src="Images/cvmc-renovation.jpg"
+       alt="Cagayan Valley Medical Center office renovation project">
+</div>
         <div class="work-body">
           <div class="work-cat">Building Renovation</div>
           <h3>Cagayan Valley Medical Center Office Renovation</h3>
@@ -741,7 +765,10 @@
       </div>
 
       <div class="work-card">
-        <div class="work-thumb"><span>Field Photo — Placeholder</span></div>
+        <div class="work-thumb">
+  <img src="Images/industrial-qaqc.jpg"
+       alt="Industrial QA/QC inspection and refractory works">
+</div>
         <div class="work-body">
           <div class="work-cat">Industrial Construction</div>
           <h3>Industrial QA/QC Projects</h3>
@@ -867,17 +894,23 @@
           </div>
           <div class="contact-row">
             <span class="label">EMAIL</span>
-            <a href="mailto:youremail@example.com" class="val">youremail@example.com</a>
+            <a href="mailto:neildeanordinario24@gmail.com" class="val">neildeanordinario24@gmail.com</a>
           </div>
           <div class="contact-row">
             <span class="label">LINKEDIN</span>
-            <a href="#" class="val">linkedin.com/in/your-profile</a>
+            <a href="https://www.linkedin.com/in/neildean-ordinario-02b627362/" class="val">linkedin.com/in/neildean-ordinario-02b627362/</a>
           </div>
         </div>
         <div class="contact-btns">
-          <a href="mailto:youremail@example.com" class="btn btn-on-navy">Send an Email</a>
-          <a href="#" class="btn btn-ghost">View LinkedIn</a>
-          <a href="#" class="btn btn-ghost" id="resumeBtn2">Download Résumé</a>
+          <a href="mailto:neildeanordinario24@gmail.com" class="btn btn-on-navy">Send an Email</a>
+          <a href="https://www.linkedin.com/in/neildean-ordinario-02b627362/"
+   target="_blank"
+   rel="noopener"
+   class="btn btn-ghost">View LinkedIn</a>
+          <a href="Files/neildean-ordinario-resume.pdf"
+   class="btn btn-ghost"
+   id="resumeBtn2"
+   download>Download Résumé</a>
         </div>
       </div>
     </div>
@@ -889,8 +922,8 @@
     <div><span class="fname">Neildean E. Ordinario, RCE, RMP</span> — Civil Engineer &amp; Construction Estimator</div>
     <div class="footer-links">
       <span id="copyYear">© 2026</span>
-      <a href="#" >LinkedIn</a>
-      <a href="mailto:youremail@example.com">Email</a>
+      <a href="https://www.linkedin.com/in/neildean-ordinario-02b627362/" >LinkedIn</a>
+      <a href="mailto:neildeanordinario24@gmail.com">Email</a>
     </div>
   </div>
 </footer>
@@ -918,14 +951,6 @@
   document.getElementById('logoBtn').addEventListener('click', () => {
     window.scrollTo({top: 0, behavior: 'smooth'});
   });
-
-  // Resume placeholder links
-  function resumeAlert(e){
-    e.preventDefault();
-    alert('Résumé PDF link will be added here once the file is supplied.');
-  }
-  document.getElementById('resumeBtn').addEventListener('click', resumeAlert);
-  document.getElementById('resumeBtn2').addEventListener('click', resumeAlert);
 
   // Active nav link on scroll
   const sections = document.querySelectorAll('section[id]');
