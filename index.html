@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neildean E. Ordinario, RCE, RMP — Civil Engineer &amp; Construction Estimator</title>
+<meta name="description" content="Portfolio of Neildean E. Ordinario, Registered Civil Engineer and Registered Master Plumber specializing in quantity takeoffs, cost estimating, and construction documentation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2545;
+    --navy-deep:#081B36;
+    --white:#FFFFFF;
+    --gray-light:#F3F5F8;
+    --gray-line:#DDE3EB;
+    --steel:#3F6C9E;
+    --steel-soft:#6B8FB8;
+    --accent:#E8962A;
+    --ink:#1B2733;
+    --ink-soft:#4C5A6A;
+    --font-head:'Montserrat', sans-serif;
+    --font-body:'Open Sans', sans-serif;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--white);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--font-head);
+    color:var(--navy);
+    margin:0;
+    line-height:1.2;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  section{position:relative;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  .section-pad{padding:96px 0;}
+  @media (max-width:720px){
+    .section-pad{padding:64px 0;}
+    .wrap{padding:0 20px;}
+  }
+
+  .kicker{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:var(--steel);
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.04em;
+    margin-bottom:14px;
+  }
+  .kicker::before{
+    content:"";
+    width:28px;
+    height:2px;
+    background:var(--accent);
+    display:inline-block;
+  }
+
+  .section-title{
+    font-size:clamp(28px,4vw,38px);
+    font-weight:700;
+    margin-bottom:20px;
+  }
+
+  .section-intro{
+    max-width:640px;
+    color:var(--ink-soft);
+    font-size:17px;
+    margin-bottom:48px;
+  }
+
+  /* ---------- Header / Nav ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--gray-line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--font-head);
+    font-weight:800;
+    font-size:22px;
+    color:var(--navy);
+    letter-spacing:0.01em;
+    cursor:pointer;
+    background:none;
+    border:none;
+    padding:0;
+  }
+  .logo span{color:var(--accent);}
+
+  nav.primary-nav{display:flex; align-items:center; gap:36px;}
+  nav.primary-nav a{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    position:relative;
+    padding:6px 0;
+    transition:color .2s ease;
+  }
+  nav.primary-nav a:hover{color:var(--navy);}
+  nav.primary-nav a::after{
+    content:"";
+    position:absolute;
+    left:0; right:100%;
+    bottom:0;
+    height:2px;
+    background:var(--accent);
+    transition:right .25s ease;
+  }
+  nav.primary-nav a.active{color:var(--navy);}
+  nav.primary-nav a.active::after{right:0;}
+
+  .menu-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px;
+  }
+  .menu-toggle span{
+    width:24px; height:2px;
+    background:var(--navy);
+    display:block;
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .menu-toggle.open span:nth-child(2){opacity:0;}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width:860px){
+    nav.primary-nav{
+      position:fixed;
+      top:76px; left:0; right:0;
+      background:var(--white);
+      border-bottom:1px solid var(--gray-line);
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      padding:8px 20px 20px;
+      transform:translateY(-8px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .2s ease, transform .2s ease;
+    }
+    nav.primary-nav.open{
+      opacity:1;
+      transform:translateY(0);
+      pointer-events:auto;
+    }
+    nav.primary-nav a{
+      width:100%;
+      padding:14px 0;
+      border-bottom:1px solid var(--gray-line);
+    }
+    .menu-toggle{display:flex;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:
+      linear-gradient(var(--white),var(--white)),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, var(--gray-line) 39px, var(--gray-line) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, var(--gray-line) 39px, var(--gray-line) 40px);
+    background-size:100% 100%, 40px 40px, 40px 40px;
+    background-position:center, center, center;
+    -webkit-mask-image:radial-gradient(ellipse 90% 70% at 60% 30%, black 40%, transparent 85%);
+    mask-image:radial-gradient(ellipse 90% 70% at 60% 30%, black 40%, transparent 85%);
+  }
+  .hero-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:88px 32px 96px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .hero-inner{grid-template-columns:1fr; padding:56px 20px 64px; gap:40px; text-align:left;}
+  }
+  .hero-eyebrow{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.04em;
+    color:var(--steel);
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .hero-eyebrow::before{content:"";width:28px;height:2px;background:var(--accent);}
+  .hero h1{
+    font-size:clamp(34px,5vw,54px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:10px;
+  }
+  .hero .role{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:clamp(17px,2vw,20px);
+    color:var(--steel);
+    margin-bottom:24px;
+  }
+  .hero p.desc{
+    font-size:17px;
+    color:var(--ink-soft);
+    max-width:520px;
+    margin-bottom:32px;
+  }
+  .btn-row{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:22px;}
+  .btn{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:14.5px;
+    padding:14px 26px;
+    border-radius:4px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--accent); color:var(--navy-deep);}
+  .btn-primary:hover{background:#d6871f;}
+  .btn-outline{background:transparent; color:var(--navy); border-color:var(--navy);}
+  .btn-outline:hover{background:var(--navy); color:var(--white);}
+
+  .availability{
+    font-size:14px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:#3F9E5B; box-shadow:0 0 0 3px rgba(63,158,91,0.18);}
+
+  .hero-portrait{
+    position:relative;
+    aspect-ratio:4/5;
+    background:var(--navy);
+    border-radius:6px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-portrait .frame-label{
+    position:absolute;
+    bottom:16px; left:16px; right:16px;
+    color:rgba(255,255,255,0.75);
+    font-family:var(--font-head);
+    font-size:11.5px;
+    letter-spacing:0.03em;
+    display:flex;
+    justify-content:space-between;
+    border-top:1px solid rgba(255,255,255,0.25);
+    padding-top:10px;
+  }
+  .hero-portrait .placeholder-icon{
+    color:rgba(255,255,255,0.5);
+    text-align:center;
+    font-family:var(--font-head);
+    font-size:14px;
+  }
+  .hero-portrait .placeholder-icon svg{width:56px;height:56px; margin-bottom:10px; opacity:0.7;}
+
+  /* ---------- About ---------- */
+  .about{background:var(--white);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:64px;
+    align-items:start;
+  }
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr; gap:40px;}}
+  .about-text p{color:var(--ink-soft); font-size:16.5px; margin-bottom:18px;}
+
+  .credentials{display:flex; flex-direction:column; gap:0; margin-top:8px;}
+  .credential-item{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    padding:16px 0;
+    border-bottom:1px solid var(--gray-line);
+  }
+  .credential-item:first-child{padding-top:0;}
+  .credential-item .mark{
+    font-family:var(--font-head);
+    font-weight:700;
+    color:var(--accent);
+    font-size:14px;
+    min-width:26px;
+  }
+  .credential-item .label{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:15.5px;
+    color:var(--navy);
+  }
+
+  .whatido-title{
+    font-family:var(--font-head);
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.03em;
+    color:var(--navy);
+    margin:44px 0 20px;
+  }
+  .service-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--gray-line);
+    border:1px solid var(--gray-line);
+  }
+  @media (max-width:600px){.service-grid{grid-template-columns:1fr;}}
+  .service-card{
+    background:var(--white);
+    padding:22px 20px;
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:14.5px;
+    color:var(--ink);
+    line-height:1.4;
+  }
+
+  /* ---------- Work ---------- */
+  .work{background:var(--gray-light);}
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+  }
+  @media (max-width:760px){.work-grid{grid-template-columns:1fr;}}
+
+  .work-card{
+    background:var(--white);
+    border:1px solid var(--gray-line);
+    border-radius:6px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .work-card:hover{box-shadow:0 10px 30px rgba(11,37,69,0.1); transform:translateY(-3px);}
+
+  .work-thumb{
+    height:150px;
+    background:
+      repeating-linear-gradient(45deg, var(--navy), var(--navy) 10px, var(--navy-deep) 10px, var(--navy-deep) 20px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:rgba(255,255,255,0.85);
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:12.5px;
+    letter-spacing:0.03em;
+    position:relative;
+  }
+  .work-thumb span{
+    background:rgba(11,37,69,0.75);
+    padding:6px 14px;
+    border-radius:3px;
+    backdrop-filter:blur(2px);
+  }
+
+  .work-body{padding:24px 24px 26px; display:flex; flex-direction:column; gap:12px; flex:1;}
+  .work-cat{
+    font-family:var(--font-head);
+    font-weight:600;
+    font-size:11.5px;
+    letter-spacing:0.03em;
+    color:var(--steel);
+  }
+  .work-body h3{font-size:18px; font-weight:700;}
+  .work-body p.desc{color:var(--ink-soft); font-size:15px; margin:0;}
+
+  .work-meta{
+    margin-top:auto;
+    padding-top:14px;
+    border-top:1px solid var(--gray-line);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .work-meta-row{display:flex; gap:8px; font-size:13.5px;}
+  .work-meta-row .k{font-family:var(--font-head); font-weight:600; color:var(--navy); min-width:64px; flex-shrink:0;}
+  .work-meta-row .v{color:var(--ink-soft);}
+
+  .tag-row{display:flex; flex-wrap:wrap; gap:6px;}
+  .tag{
+    font-size:12px;
+    font-family:var(--font-head);
+    font-weight:600;
+    color:var(--steel);
+    background:rgba(63,108,158,0.08);
+    padding:4px 10px;
+    border-radius:3px;
+  }
+
+  /* ---------- Experience Timeline ---------- */
+  .experience{background:var(--white);}
+  .timeline{
+    position:relative;
+    max-width:760px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:9px; top:6px; bottom:6px;
+    width:2px;
+    background:var(--gray-line);
+  }
+  .timeline-item{
+    position:relative;
+    padding-left:44px;
+    padding-bottom:48px;
+  }
+  .timeline-item:last-child{padding-bottom:0;}
+  .timeline-dot{
+    position:absolute;
+    left:0; top:4px;
+    width:20px; height:20px;
+    border-radius:50%;
+    background:var(--white);
+    border:3px solid var(--accent);
+  }
+  .timeline-item h3{font-size:19px; font-weight:700; margin-bottom:4px;}
+  .timeline-org{
+    font-family:var(--font-head);
+    font-weight:600;
+    color:var(--steel);
+    font-size:14.5px;
+    margin-bottom:2px;
+  }
+  .timeline-date{
+    font-size:13px;
+    color:var(--ink-soft);
+    font-family:var(--font-head);
+    font-weight:600;
+    letter-spacing:0.02em;
+    margin-bottom:12px;
+  }
+  .timeline-item p{color:var(--ink-soft); font-size:15.5px; max-width:600px; margin:0;}
+
+  /* ---------- Skills ---------- */
+  .skills{background:var(--gray-light);}
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:32px;
+  }
+  @media (max-width:760px){.skills-grid{grid-template-columns:1fr;}}
+  .skill-block{
+    background:var(--white);
+    border:1px solid var(--gray-line);
+    border-radius:6px;
+    padding:28px 26px;
+  }
+  .skill-block h3{
+    font-size:15px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:18px;
+    padding-bottom:14px;
+    border-bottom:2px solid var(--navy);
+    display:inline-block;
+  }
+  .skill-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .skill-tags .tag{
+    background:var(--gray-light);
+    color:var(--ink);
+    border:1px solid var(--gray-line);
+  }
+  .skill-block.software .skill-tags .tag{
+    color:var(--navy);
+    background:rgba(232,150,42,0.08);
+    border-color:rgba(232,150,42,0.25);
+  }
+
+  /* ---------- Contact ---------- */
+  .contact{
+    background:var(--navy);
+    color:var(--white);
+  }
+  .contact .kicker{color:var(--steel-soft);}
+  .contact .section-title{color:var(--white);}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media (max-width:820px){.contact-grid{grid-template-columns:1fr; gap:36px;}}
+  .contact p.msg{color:rgba(255,255,255,0.75); font-size:17px; max-width:480px; margin-bottom:0;}
+
+  .contact-info{display:flex; flex-direction:column; gap:22px;}
+  .contact-row{display:flex; flex-direction:column; gap:4px;}
+  .contact-row .label{
+    font-family:var(--font-head);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.03em;
+    color:var(--steel-soft);
+  }
+  .contact-row .val{font-size:16px; color:var(--white);}
+  .contact-row a.val:hover{color:var(--accent);}
+
+  .contact-btns{display:flex; flex-direction:column; gap:12px; margin-top:8px;}
+  .contact-btns .btn{justify-content:center;}
+  .btn-on-navy{background:var(--accent); color:var(--navy-deep);}
+  .btn-on-navy:hover{background:#d6871f;}
+  .btn-ghost{background:transparent; color:var(--white); border-color:rgba(255,255,255,0.35);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.08); border-color:var(--white);}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--navy-deep);
+    color:rgba(255,255,255,0.6);
+    padding:36px 0;
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    font-size:13.5px;
+  }
+  .footer-inner .fname{color:rgba(255,255,255,0.85); font-family:var(--font-head); font-weight:600;}
+  .footer-links{display:flex; gap:20px;}
+  .footer-links a:hover{color:var(--accent);}
+
+  @media (max-width:600px){
+    .footer-inner{flex-direction:column; text-align:center;}
+  }
+
+  :focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <button class="logo" id="logoBtn" aria-label="Back to top">NEO<span>.</span></button>
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">CIVIL ENGINEERING · CONSTRUCTION ESTIMATING</div>
+      <h1>Neildean E. Ordinario, RCE, RMP</h1>
+      <div class="role">Civil Engineer &amp; Construction Estimator</div>
+      <p class="desc">Registered Civil Engineer and Registered Master Plumber specializing in quantity takeoffs, detailed cost estimates, BOQs, technical documentation, and project support for infrastructure, building, and industrial projects.</p>
+      <div class="btn-row">
+        <a href="#work" class="btn btn-primary" id="viewWorkBtn">View My Work</a>
+        <a href="#" class="btn btn-outline" id="resumeBtn">Download Résumé</a>
+      </div>
+      <div class="availability"><span class="dot"></span>Open to remote construction estimating and project-support opportunities.</div>
+    </div>
+    <div class="hero-portrait">
+      <div class="placeholder-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
+        Portrait to be supplied
+      </div>
+      <div class="frame-label">
+        <span>PHOTO PLACEHOLDER</span>
+        <span>4:5</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about section-pad" id="about">
+  <div class="wrap">
+    <div class="kicker">ABOUT</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am a Registered Civil Engineer and Registered Master Plumber with experience in government infrastructure, building renovation, and industrial construction projects. My work covers quantity takeoffs, detailed estimates, Programs of Work, Bills of Quantities, unit cost derivations, AutoCAD drafting, project monitoring, site supervision, QA/QC, and technical documentation.</p>
+        <p>I combine field experience with strong documentation and estimating skills to help project teams convert construction plans into clear quantities, reliable cost information, and organized project records.</p>
+
+        <div class="whatido-title">WHAT I DO</div>
+        <div class="service-grid">
+          <div class="service-card">Quantity Takeoff and Cost Estimating</div>
+          <div class="service-card">BOQ, DUPA, and Unit Cost Derivation</div>
+          <div class="service-card">AutoCAD Drafting and Plan Review</div>
+          <div class="service-card">Construction Documentation and Project Monitoring</div>
+        </div>
+      </div>
+      <div class="credentials">
+        <div class="credential-item"><span class="mark">01</span><span class="label">Registered Civil Engineer</span></div>
+        <div class="credential-item"><span class="mark">02</span><span class="label">Registered Master Plumber</span></div>
+        <div class="credential-item"><span class="mark">03</span><span class="label">MS Civil Engineering Student</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work section-pad" id="work">
+  <div class="wrap">
+    <div class="kicker">SELECTED WORK</div>
+    <h2 class="section-title">Selected Work</h2>
+    <p class="section-intro">A selection of infrastructure, building, and industrial projects demonstrating my experience in estimating, documentation, site coordination, and quality control.</p>
+
+    <div class="work-grid">
+
+      <div class="work-card">
+        <div class="work-thumb"><span>Technical Sample — Placeholder</span></div>
+        <div class="work-body">
+          <div class="work-cat">Infrastructure Estimating</div>
+          <h3>TRMP High-Dam Diversion Tunnel Estimate</h3>
+          <p class="desc">Preparation of detailed quantities and cost estimates for the proposed diversion-tunnel components of the Tumauini River Multipurpose Project.</p>
+          <div class="work-meta">
+            <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Estimating Support</span></div>
+            <div class="work-meta-row"><span class="k">Focus</span><span class="v">Quantity takeoff, cost estimating, plan interpretation, and supporting technical documents.</span></div>
+            <div class="tag-row"><span class="tag">AutoCAD</span><span class="tag">Excel</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-thumb"><span>Technical Sample — Placeholder</span></div>
+        <div class="work-body">
+          <div class="work-cat">Structural &amp; Infrastructure Estimating</div>
+          <h3>TRMP Afterbay-Dam Retaining Wall Estimate</h3>
+          <p class="desc">Preparation of material quantities and detailed estimates for the proposed retaining-wall components of the afterbay dam.</p>
+          <div class="work-meta">
+            <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Estimating Support</span></div>
+            <div class="work-meta-row"><span class="k">Focus</span><span class="v">Concrete, reinforcing steel, formwork quantities, cost analysis, and technical documentation.</span></div>
+            <div class="tag-row"><span class="tag">AutoCAD</span><span class="tag">Excel</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-thumb"><span>Field Photo — Placeholder</span></div>
+        <div class="work-body">
+          <div class="work-cat">Project Monitoring &amp; Site Supervision</div>
+          <h3>Steel Lookout Tower Construction</h3>
+          <p class="desc">Project-in-Charge responsibilities for the construction of two steel lookout towers, including field monitoring, inspections, progress documentation, punch listing, and verification of completed work.</p>
+          <div class="work-meta">
+            <div class="work-meta-row"><span class="k">Role</span><span class="v">Project-in-Charge</span></div>
+            <div class="work-meta-row"><span class="k">Focus</span><span class="v">Site supervision, progress monitoring, quality inspection, reports, and contractor coordination.</span></div>
+            <div class="tag-row"><span class="tag">Progress Reports</span><span class="tag">QA/QC</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-thumb"><span>Technical Sample — Placeholder</span></div>
+        <div class="work-body">
+          <div class="work-cat">Civil Works</div>
+          <h3>Access Roads, Canal Structures, and Slope Protection</h3>
+          <p class="desc">Planning, quantity preparation, drawing development, and technical-document support for access roads, drainage structures, canal structures, and slope-protection works.</p>
+          <div class="work-meta">
+            <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Planning &amp; Drafting Support</span></div>
+            <div class="work-meta-row"><span class="k">Focus</span><span class="v">AutoCAD drafting, quantity calculations, Programs of Work, BOQs, and unit cost derivations.</span></div>
+            <div class="tag-row"><span class="tag">AutoCAD</span><span class="tag">BOQ</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-thumb"><span>Field Photo — Placeholder</span></div>
+        <div class="work-body">
+          <div class="work-cat">Building Renovation</div>
+          <h3>Cagayan Valley Medical Center Office Renovation</h3>
+          <p class="desc">Site engineering and documentation work for an office-renovation project, including scheduling, estimates, as-built drawings, progress monitoring, and variation-order documentation.</p>
+          <div class="work-meta">
+            <div class="work-meta-row"><span class="k">Role</span><span class="v">Site Engineer</span></div>
+            <div class="work-meta-row"><span class="k">Focus</span><span class="v">Site coordination, quantity takeoff, construction scheduling, as-built plans, and project documentation.</span></div>
+            <div class="tag-row"><span class="tag">As-Built</span><span class="tag">Scheduling</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-thumb"><span>Field Photo — Placeholder</span></div>
+        <div class="work-body">
+          <div class="work-cat">Industrial Construction</div>
+          <h3>Industrial QA/QC Projects</h3>
+          <p class="desc">Quality-control experience involving refractory, insulation, cladding, and scaffolding activities for industrial facilities and shutdown projects.</p>
+          <div class="work-meta">
+            <div class="work-meta-row"><span class="k">Role</span><span class="v">QA/QC Engineer</span></div>
+            <div class="work-meta-row"><span class="k">Focus</span><span class="v">Inspection, quality documentation, daily reports, safety coordination, and compliance with approved specifications.</span></div>
+            <div class="tag-row"><span class="tag">QA/QC</span><span class="tag">Daily Reports</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="experience section-pad" id="experience">
+  <div class="wrap">
+    <div class="kicker">PROFESSIONAL EXPERIENCE</div>
+    <h2 class="section-title">Professional Experience</h2>
+    <p class="section-intro">Employment history and responsibilities. See Selected Work above for individual project deliverables.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <h3>Engineer A</h3>
+        <div class="timeline-org">National Irrigation Administration — Tumauini River Multipurpose Project</div>
+        <div class="timeline-date">May 2025 – Present</div>
+        <p>Prepares detailed cost estimates, Programs of Work, Bills of Quantities, and Detailed Unit Price Analyses for dam and tunnel components. Develops AutoCAD plans, computes variation-order quantities, and supports project monitoring and technical documentation for the project team.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <h3>Site Engineer</h3>
+        <div class="timeline-org">SMT Construction</div>
+        <div class="timeline-date">October 2024 – February 2025</div>
+        <p>Coordinated day-to-day site activities and progress monitoring for a renovation project. Prepared estimates, construction schedules, as-built plans, and variation-order documentation in support of project delivery.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <h3>QA/QC Engineer</h3>
+        <div class="timeline-org">Specialized Products and Services, Inc.</div>
+        <div class="timeline-date">April 2024 – September 2024</div>
+        <p>Conducted quality-assurance and quality-control inspections and documentation for refractory, insulation, cladding, and scaffolding activities during industrial shutdown projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills section-pad" id="skills">
+  <div class="wrap">
+    <div class="kicker">SKILLS &amp; TOOLS</div>
+    <h2 class="section-title">Skills and Tools</h2>
+
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h3>Estimating &amp; Quantity Surveying</h3>
+        <div class="skill-tags">
+          <span class="tag">Quantity Takeoff</span>
+          <span class="tag">Detailed Cost Estimating</span>
+          <span class="tag">Bills of Quantities</span>
+          <span class="tag">Detailed Unit Price Analysis</span>
+          <span class="tag">Unit Cost Derivation</span>
+          <span class="tag">Material and Labor Analysis</span>
+          <span class="tag">Variation-Order Quantities</span>
+          <span class="tag">Plan Interpretation</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Engineering &amp; Construction</h3>
+        <div class="skill-tags">
+          <span class="tag">AutoCAD Drafting</span>
+          <span class="tag">Civil Works Planning</span>
+          <span class="tag">Site Supervision</span>
+          <span class="tag">Project Monitoring</span>
+          <span class="tag">QA/QC Inspection</span>
+          <span class="tag">As-Built Documentation</span>
+          <span class="tag">Progress Measurement</span>
+          <span class="tag">Technical Problem-Solving</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Documentation &amp; Coordination</h3>
+        <div class="skill-tags">
+          <span class="tag">Programs of Work</span>
+          <span class="tag">Technical Reports</span>
+          <span class="tag">Progress Reports</span>
+          <span class="tag">Construction Schedules</span>
+          <span class="tag">Drawing Registers</span>
+          <span class="tag">Document Control</span>
+          <span class="tag">Meeting and Action Trackers</span>
+          <span class="tag">Contractor Coordination</span>
+        </div>
+      </div>
+      <div class="skill-block software">
+        <h3>Software</h3>
+        <div class="skill-tags">
+          <span class="tag">AutoCAD</span>
+          <span class="tag">Microsoft Excel</span>
+          <span class="tag">PlanSwift</span>
+          <span class="tag">Primavera P6</span>
+          <span class="tag">Microsoft Word</span>
+          <span class="tag">Microsoft PowerPoint</span>
+          <span class="tag">Microsoft 365</span>
+          <span class="tag">Google Workspace</span>
+          <span class="tag">Canva</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact section-pad" id="contact">
+  <div class="wrap">
+    <div class="kicker">CONTACT</div>
+    <h2 class="section-title">Let's Work Together</h2>
+    <div class="contact-grid">
+      <p class="msg">Need support with quantity takeoffs, cost estimates, construction documentation, AutoCAD drawings, or project monitoring? Feel free to contact me to discuss your project or opportunity.</p>
+      <div>
+        <div class="contact-info">
+          <div class="contact-row">
+            <span class="label">LOCATION</span>
+            <span class="val">Cagayan, Philippines</span>
+          </div>
+          <div class="contact-row">
+            <span class="label">EMAIL</span>
+            <a href="mailto:youremail@example.com" class="val">youremail@example.com</a>
+          </div>
+          <div class="contact-row">
+            <span class="label">LINKEDIN</span>
+            <a href="#" class="val">linkedin.com/in/your-profile</a>
+          </div>
+        </div>
+        <div class="contact-btns">
+          <a href="mailto:youremail@example.com" class="btn btn-on-navy">Send an Email</a>
+          <a href="#" class="btn btn-ghost">View LinkedIn</a>
+          <a href="#" class="btn btn-ghost" id="resumeBtn2">Download Résumé</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div><span class="fname">Neildean E. Ordinario, RCE, RMP</span> — Civil Engineer &amp; Construction Estimator</div>
+    <div class="footer-links">
+      <span id="copyYear">© 2026</span>
+      <a href="#" >LinkedIn</a>
+      <a href="mailto:youremail@example.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const primaryNav = document.getElementById('primaryNav');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = primaryNav.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close mobile menu after clicking a link
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      primaryNav.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Logo returns to top
+  document.getElementById('logoBtn').addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+
+  // Resume placeholder links
+  function resumeAlert(e){
+    e.preventDefault();
+    alert('Résumé PDF link will be added here once the file is supplied.');
+  }
+  document.getElementById('resumeBtn').addEventListener('click', resumeAlert);
+  document.getElementById('resumeBtn2').addEventListener('click', resumeAlert);
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const setActive = () => {
+    let currentId = '';
+    const scrollPos = window.scrollY + 110;
+    sections.forEach(sec => {
+      if (scrollPos >= sec.offsetTop) currentId = sec.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+    });
+  };
+  window.addEventListener('scroll', setActive);
+  setActive();
+
+  // Footer year
+  document.getElementById('copyYear').textContent = '© ' + new Date().getFullYear();
+</script>
+
+</body>
+</html>
