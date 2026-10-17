@@ -393,6 +393,7 @@
     display:flex;
     flex-direction:column;
     transition:box-shadow .2s ease, transform .2s ease;
+    cursor:pointer;
   }
   .work-card:hover{box-shadow:0 10px 30px rgba(11,37,69,0.1); transform:translateY(-3px);}
 
@@ -435,6 +436,7 @@
   }
   .work-body h3{font-size:18px; font-weight:700;}
   .work-body p.desc{color:var(--ink-soft); font-size:15px; margin:0;}
+  .popup-details{display:none;}
 
   .work-meta{
     margin-top:auto;
@@ -567,6 +569,12 @@
     background:var(--white);
     border:1px solid var(--gray-line);
     border-radius:5px;
+    cursor:pointer;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .remote-project-card:hover{
+    box-shadow:0 8px 22px rgba(11,37,69,0.11);
+    transform:translateY(-2px);
   }
   .remote-project-thumb{
     min-height:104px;
@@ -709,6 +717,120 @@
     .footer-inner{flex-direction:column; text-align:center;}
   }
 
+  /* ---------- Project Image Lightbox ---------- */
+  body.lightbox-open{overflow:hidden;}
+  .work-thumb img{
+    cursor:zoom-in;
+    transition:transform .25s ease;
+  }
+  .work-thumb:hover img{transform:scale(1.015);}
+  .work-thumb img:focus-visible{
+    outline:4px solid var(--accent);
+    outline-offset:-4px;
+  }
+  .image-lightbox{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    display:grid;
+    place-items:center;
+    padding:56px 24px 28px;
+    background:rgba(3,12,25,0.92);
+    overflow-y:auto;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .2s ease, visibility .2s ease;
+  }
+  .image-lightbox.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+  }
+  .lightbox-dialog{
+    position:relative;
+    width:min(94vw,1200px);
+  }
+  .lightbox-image{
+    width:100%;
+    max-height:68vh;
+    object-fit:contain;
+    border-radius:6px 6px 0 0;
+    background:var(--white);
+    box-shadow:0 24px 70px rgba(0,0,0,0.5);
+  }
+  .image-lightbox.no-image .lightbox-image{display:none;}
+  .image-lightbox.no-image .lightbox-details{border-radius:6px;}
+  .lightbox-close{
+    position:absolute;
+    right:0;
+    top:-46px;
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(255,255,255,0.5);
+    border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    color:var(--white);
+    font-size:26px;
+    line-height:1;
+    cursor:pointer;
+  }
+  .lightbox-close:hover{background:var(--accent); color:var(--navy-deep);}
+  .lightbox-details{
+    padding:18px 22px 20px;
+    border-radius:0 0 6px 6px;
+    background:var(--white);
+    box-shadow:0 24px 70px rgba(0,0,0,0.5);
+    text-align:left;
+  }
+  .lightbox-category{
+    color:var(--steel);
+    font-family:var(--font-head);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .lightbox-title{
+    margin-top:5px;
+    font-size:20px;
+  }
+  .lightbox-description{
+    margin:8px 0 12px;
+    color:var(--ink-soft);
+    font-size:14px;
+    line-height:1.55;
+  }
+  .lightbox-meta{
+    display:grid;
+    gap:5px;
+    padding-top:11px;
+    border-top:1px solid var(--gray-line);
+  }
+  .lightbox-meta-row{
+    display:grid;
+    grid-template-columns:88px 1fr;
+    gap:8px;
+    font-size:12.5px;
+    line-height:1.45;
+  }
+  .lightbox-meta-row strong{
+    color:var(--navy);
+    font-family:var(--font-head);
+    font-size:11px;
+  }
+  @media (max-width:600px){
+    .image-lightbox{padding:60px 12px 20px;}
+    .lightbox-dialog{width:96vw;}
+    .lightbox-image{max-height:55vh;}
+    .lightbox-close{right:4px;}
+    .lightbox-details{padding:15px 16px 17px;}
+    .lightbox-title{font-size:17px;}
+    .lightbox-meta-row{grid-template-columns:70px 1fr;}
+  }
+
   :focus-visible{
     outline:2px solid var(--accent);
     outline-offset:3px;
@@ -804,6 +926,7 @@
           <div class="remote-project-body">
             <h4>US Residential Framing Takeoff</h4>
             <p>Prepared marked-up plans and organized quantities for wall, floor, and roof framing, including studs, plates, sheathing, joists, rimboard, blocking, and trusses.</p>
+            <p class="popup-details">Reviewed architectural and structural drawings and completed wall, floor, and roof framing takeoffs. Quantified studs, double top and sill plates, sheathing, joists, rimboard, bearing blocks, field and gable-end trusses, outlookers, fascia items, and roof sheathing. Used PlanSwift markups and organized Excel schedules while checking openings, member spacing, roof pitches, bearing conditions, and drawing notes for estimator review.</p>
             <div class="tag-row">
               <span class="tag">PlanSwift</span>
               <span class="tag">Excel</span>
@@ -820,6 +943,7 @@
           <div class="remote-project-body">
             <h4>Multifamily Apartment HVAC Takeoff</h4>
             <p>Prepared quantity takeoffs and marked-up mechanical plans covering FCUs, heat pumps, air systems, ductwork, grilles, dampers, and related accessories.</p>
+            <p class="popup-details">Prepared marked-up mechanical plans and quantity schedules for multifamily apartment buildings. Counted fan-coil and heat-pump equipment, supply and return air components, outdoor-air and exhaust systems, ductwork, grilles, dampers, boots, fittings, and related accessories. Cross-checked floor plans, equipment schedules, and mechanical details, then documented drawing conflicts and assumptions for review before submission.</p>
             <div class="tag-row">
               <span class="tag">PlanSwift</span>
               <span class="tag">Excel</span>
@@ -836,6 +960,7 @@
           <div class="remote-project-body">
             <h4>Landscape Irrigation Quantity Takeoff</h4>
             <p>Measured and organized quantities for pipelines, drip lines, valves, fittings, reducers, clamps, and related irrigation materials.</p>
+            <p class="popup-details">Measured irrigation pipework and drip lines within the project boundary and counted valves, filters, control components, fittings, reducers, clamps, and tree-ring materials. Prepared PlanSwift markups and organized the quantities in Excel, reviewed drawing details and specifications, and flagged scale or scope discrepancies for clarification before finalizing the takeoff.</p>
             <div class="tag-row">
               <span class="tag">PlanSwift</span>
               <span class="tag">Excel</span>
@@ -856,7 +981,8 @@
         <div class="work-body">
           <div class="work-cat">Infrastructure Estimating</div>
           <h3>TRMP High-Dam Diversion Tunnel Estimate</h3>
-          <p class="desc">Preparation of detailed quantities and cost estimates for the proposed diversion-tunnel components of the Tumauini River Multipurpose Project.</p>
+          <p class="desc">Prepared detailed takeoffs and estimate inputs for tunnel portals, tunneling works, concrete, reinforcing steel, formwork, backfill, intake-related components, and supporting structures.</p>
+          <p class="popup-details">Interpreted design drawings and specifications to develop detailed quantities and cost-estimate inputs for tunnel portals, tunneling works, structural concrete, reinforcing steel, formwork, backfill, intake-related components, and supporting structures. Consolidated calculations and estimate data for Bills of Quantities and Program of Work review, with drawing checks and supporting technical documentation.</p>
           <div class="work-meta">
             <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Quantity & Cost Estimating</span></div>
             <div class="work-meta-row"><span class="k">Focus</span><span class="v">Quantity takeoff, cost estimating, plan interpretation, and supporting technical documents.</span></div>
@@ -872,7 +998,8 @@
         <div class="work-body">
           <div class="work-cat">Structural &amp; Infrastructure Estimating</div>
           <h3>TRMP Afterbay-Dam Retaining Wall Estimate</h3>
-          <p class="desc">Preparation of material quantities and detailed estimates for the proposed retaining-wall components of the afterbay dam.</p>
+          <p class="desc">Prepared material quantities and detailed estimates for the proposed afterbay retaining wall, covering concrete, reinforcing steel, formwork, and associated structural components.</p>
+          <p class="popup-details">Reviewed retaining-wall drawings and prepared measured quantities for excavation-related work, structural concrete, reinforcing steel, formwork, joints, and associated wall components. Organized calculation sheets and detailed estimate inputs for cost analysis, BOQ preparation, and technical review of the proposed afterbay works.</p>
           <div class="work-meta">
             <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Quantity & Cost Estimating</span></div>
             <div class="work-meta-row"><span class="k">Focus</span><span class="v">Concrete, reinforcing steel, formwork quantities, cost analysis, and technical documentation.</span></div>
@@ -890,6 +1017,7 @@
           <div class="work-cat">Project Monitoring &amp; Site Supervision</div>
           <h3>Steel Lookout Tower Construction</h3>
           <p class="desc">Project-in-Charge responsibilities for the construction of two steel lookout towers, including field monitoring, inspections, progress documentation, punch listing, and verification of completed work.</p>
+          <p class="popup-details">Served as Project-in-Charge for two steel-structure lookout towers. Coordinated field inspections, monitored construction progress and contractor compliance, verified completed quantities, documented site conditions, and maintained progress and quality records. Also prepared punch lists, supported variation-order quantity checks, reviewed billing accomplishments, and followed outstanding items through project completion.</p>
           <div class="work-meta">
             <div class="work-meta-row"><span class="k">Role</span><span class="v">Project-in-Charge</span></div>
             <div class="work-meta-row"><span class="k">Focus</span><span class="v">Site supervision, progress monitoring, quality inspection, reports, and contractor coordination.</span></div>
@@ -906,7 +1034,8 @@
         <div class="work-body">
           <div class="work-cat">Civil Works</div>
           <h3>Access Roads, Canal Structures, and Slope Protection</h3>
-          <p class="desc">Planning, quantity preparation, drawing development, and technical-document support for access roads, drainage structures, canal structures, and slope-protection works.</p>
+          <p class="desc">Developed drawings, quantities, and technical documents for access roads, drainage and canal structures, crossings, culverts, flume works, and slope-protection components.</p>
+          <p class="popup-details">Prepared and revised AutoCAD plans, profiles, and cross-sections for access roads, drainage and canal structures, crossings, culverts, elevated flume works, and slope-protection components. Developed quantity calculations, Programs of Work, BOQs, and Detailed Unit Price Analyses, and supported field validation and technical recommendations for cost and design review.</p>
           <div class="work-meta">
             <div class="work-meta-row"><span class="k">Role</span><span class="v">Engineer A — Planning &amp; Design</span></div>
             <div class="work-meta-row"><span class="k">Focus</span><span class="v">AutoCAD drafting, quantity calculations, Programs of Work, BOQs, and unit cost derivations.</span></div>
@@ -923,7 +1052,8 @@
         <div class="work-body">
           <div class="work-cat">Building Renovation</div>
           <h3>Cagayan Valley Medical Center Office Renovation</h3>
-          <p class="desc">Site engineering and documentation work for an office-renovation project, including scheduling, estimates, as-built drawings, progress monitoring, and variation-order documentation.</p>
+          <p class="desc">Coordinated architectural, civil, electrical, mechanical, and auxiliary renovation works, including scheduling, estimates, as-built drawings, progress monitoring, and variation-order documentation.</p>
+          <p class="popup-details">Reviewed multidisciplinary drawings and coordinated demolition and renovation activities across architectural, civil, electrical, mechanical, and auxiliary scopes. Monitored subcontractor sequencing, inspected materials and completed installations, prepared quantity and schedule updates, checked variation-order quantities, and produced AutoCAD as-built plans and turnover documentation.</p>
           <div class="work-meta">
             <div class="work-meta-row"><span class="k">Role</span><span class="v">Site Engineer</span></div>
             <div class="work-meta-row"><span class="k">Focus</span><span class="v">Site coordination, quantity takeoff, construction scheduling, as-built plans, and project documentation.</span></div>
@@ -940,7 +1070,8 @@
         <div class="work-body">
           <div class="work-cat">Industrial Construction</div>
           <h3>Industrial QA/QC Projects</h3>
-          <p class="desc">Quality-control experience involving refractory, insulation, cladding, and scaffolding activities for industrial facilities and shutdown projects.</p>
+          <p class="desc">Performed QA/QC inspections and documentation for refractory, insulation, cladding, scaffolding, and related activities during industrial plant shutdown projects.</p>
+          <p class="popup-details">Performed field QA/QC inspections during industrial shutdown projects covering refractory demolition and replacement, insulation, cladding, scaffolding, and acid-resistant brick works. Verified installations against approved specifications and procedures, coordinated findings with site teams, documented corrective items, and maintained daily inspection and quality records supporting work acceptance.</p>
           <div class="work-meta">
             <div class="work-meta-row"><span class="k">Role</span><span class="v">QA/QC Engineer</span></div>
             <div class="work-meta-row"><span class="k">Focus</span><span class="v">Inspection, quality documentation, daily reports, safety coordination, and compliance with approved specifications.</span></div>
@@ -964,7 +1095,7 @@
         <div class="timeline-dot"></div>
         <h3>Freelance Construction Estimator</h3>
         <div class="timeline-org">Multi-Trade Remote Estimating</div>
-        <div class="timeline-date">September 2026 – Present</div>
+        <div class="timeline-date">July 2026 – Present</div>
         <p>Provides remote quantity-takeoff and estimating support across multiple construction trades using PlanSwift, Microsoft Excel, and project-specific estimating workflows.</p>
       </div>
 
@@ -1107,6 +1238,19 @@
   </div>
 </footer>
 
+<div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Expanded project image" aria-hidden="true">
+  <div class="lightbox-dialog">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close enlarged image">&times;</button>
+    <img class="lightbox-image" id="lightboxImage" src="" alt="">
+    <div class="lightbox-details">
+      <div class="lightbox-category" id="lightboxCategory"></div>
+      <h3 class="lightbox-title" id="lightboxTitle"></h3>
+      <p class="lightbox-description" id="lightboxDescription"></p>
+      <div class="lightbox-meta" id="lightboxMeta"></div>
+    </div>
+  </div>
+</div>
+
 <script>
   // Mobile menu toggle
   const menuToggle = document.getElementById('menuToggle');
@@ -1146,6 +1290,100 @@
   };
   window.addEventListener('scroll', setActive);
   setActive();
+
+  // Open Selected Work cards in an accessible project-details popup
+  const imageLightbox = document.getElementById('imageLightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxCategory = document.getElementById('lightboxCategory');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxDescription = document.getElementById('lightboxDescription');
+  const lightboxMeta = document.getElementById('lightboxMeta');
+  const lightboxClose = document.getElementById('lightboxClose');
+  let lastLightboxTrigger = null;
+
+  const openLightbox = card => {
+    const image = card.querySelector('.work-thumb img');
+    const projectTitle = card.querySelector('h3, h4')?.textContent || 'Selected Project';
+    const category = card.querySelector('.work-cat, .project-code')?.textContent || 'Selected Work';
+    const description = card.querySelector('.popup-details')?.textContent || card.querySelector('.desc, .remote-project-body p')?.textContent || '';
+    const metaRows = [...card.querySelectorAll('.work-meta-row')];
+    const tags = [...card.querySelectorAll('.tag-row .tag')].map(tag => tag.textContent);
+    lastLightboxTrigger = card;
+
+    if (image) {
+      imageLightbox.classList.remove('no-image');
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt;
+    } else {
+      imageLightbox.classList.add('no-image');
+      lightboxImage.removeAttribute('src');
+      lightboxImage.alt = '';
+    }
+    lightboxCategory.textContent = category;
+    lightboxTitle.textContent = projectTitle;
+    lightboxDescription.textContent = description;
+    lightboxMeta.replaceChildren();
+
+    metaRows.forEach(row => {
+      const detail = document.createElement('div');
+      detail.className = 'lightbox-meta-row';
+      const label = document.createElement('strong');
+      const value = document.createElement('span');
+      label.textContent = row.querySelector('.k')?.textContent || '';
+      value.textContent = row.querySelector('.v')?.textContent || '';
+      detail.append(label, value);
+      lightboxMeta.append(detail);
+    });
+
+    if (tags.length) {
+      const tools = document.createElement('div');
+      tools.className = 'lightbox-meta-row';
+      const label = document.createElement('strong');
+      const value = document.createElement('span');
+      label.textContent = 'Tools / Outputs';
+      value.textContent = tags.join(' · ');
+      tools.append(label, value);
+      lightboxMeta.append(tools);
+    }
+    imageLightbox.classList.add('open');
+    imageLightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    lightboxClose.focus();
+  };
+
+  const closeLightbox = () => {
+    if (!imageLightbox.classList.contains('open')) return;
+    imageLightbox.classList.remove('open');
+    imageLightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    lightboxImage.src = '';
+    if (lastLightboxTrigger) lastLightboxTrigger.focus();
+  };
+
+  document.querySelectorAll('.work-card, .remote-project-card').forEach(card => {
+    const projectTitle = card.querySelector('h3, h4')?.textContent || 'project';
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', 'Open details for ' + projectTitle);
+    card.addEventListener('click', event => {
+      if (event.target.closest('a, button, summary')) return;
+      openLightbox(card);
+    });
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox(card);
+      }
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  imageLightbox.addEventListener('click', event => {
+    if (event.target === imageLightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeLightbox();
+  });
 
   // Footer year
   document.getElementById('copyYear').textContent = '© ' + new Date().getFullYear();
