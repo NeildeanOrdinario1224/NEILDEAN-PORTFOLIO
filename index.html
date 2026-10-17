@@ -5,12 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neildean E. Ordinario, RCE, RMP — Civil Engineer &amp; Construction Estimator</title>
 <meta name="description" content="Portfolio of Neildean E. Ordinario, Registered Civil Engineer and Registered Master Plumber specializing in quantity takeoffs, cost estimating, and construction documentation.">
-<meta property="og:title" content="Neildean E. Ordinario | Civil Engineer & Construction Estimator">
-<meta property="og:description" content="Portfolio showcasing quantity takeoffs, cost estimates, civil engineering projects, and construction documentation.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://neildeanordinario1224.github.io/NEILDEAN-PORTFOLIO/">
-<meta property="og:image" content="https://neildeanordinario1224.github.io/NEILDEAN-PORTFOLIO/Images/lookout-tower.jpg">
-<meta name="twitter:card" content="summary_large_image">  
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -510,6 +504,116 @@
   }
   .timeline-item p{color:var(--ink-soft); font-size:15.5px; max-width:600px; margin:0;}
 
+  /* ---------- Expandable Remote Estimating Projects ---------- */
+  .remote-projects{
+    margin-top:22px;
+    max-width:760px;
+    border:1px solid var(--gray-line);
+    border-radius:6px;
+    background:var(--white);
+    overflow:hidden;
+  }
+  .selected-remote-work{
+    max-width:none;
+    margin:0 0 28px;
+    box-shadow:0 8px 24px rgba(11,37,69,0.07);
+  }
+  .remote-projects summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    padding:16px 18px;
+    background:var(--navy);
+    color:var(--white);
+    font-family:var(--font-head);
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:0.01em;
+  }
+  .remote-projects summary::-webkit-details-marker{display:none;}
+  .remote-projects summary:focus-visible{
+    outline:3px solid rgba(232,150,42,0.45);
+    outline-offset:-3px;
+  }
+  .summary-icon{
+    display:grid;
+    place-items:center;
+    width:24px;
+    height:24px;
+    flex:0 0 24px;
+    border:1px solid rgba(255,255,255,0.45);
+    border-radius:50%;
+    font-size:18px;
+    font-weight:500;
+    line-height:1;
+    transition:transform .2s ease;
+  }
+  .remote-projects[open] .summary-icon{transform:rotate(45deg);}
+  .remote-project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:16px;
+    padding:18px;
+    background:var(--gray-light);
+  }
+  .remote-project-card{
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    background:var(--white);
+    border:1px solid var(--gray-line);
+    border-radius:5px;
+  }
+  .remote-project-thumb{
+    min-height:104px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    gap:4px;
+    color:var(--white);
+    background:
+      linear-gradient(135deg,rgba(63,108,158,0.18),rgba(232,150,42,0.14)),
+      repeating-linear-gradient(0deg,transparent,transparent 17px,rgba(255,255,255,0.08) 18px),
+      var(--navy-deep);
+  }
+  .remote-project-thumb .project-code{
+    font-family:var(--font-head);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    color:rgba(255,255,255,0.72);
+  }
+  .remote-project-thumb strong{
+    font-family:var(--font-head);
+    font-size:15px;
+    line-height:1.25;
+  }
+  .remote-project-body{
+    padding:17px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+  }
+  .remote-project-body h4{font-size:15px; font-weight:700;}
+  .remote-project-body p{
+    color:var(--ink-soft);
+    font-size:13.5px;
+    line-height:1.55;
+    margin:0;
+  }
+  .remote-project-body .tag-row{margin-top:auto; padding-top:4px;}
+  .remote-project-body .tag{font-size:10.5px; padding:3px 7px;}
+  @media (max-width:860px){
+    .remote-project-grid{grid-template-columns:1fr;}
+    .remote-project-thumb{min-height:92px;}
+  }
+
   /* ---------- Skills ---------- */
   .skills{background:var(--gray-light);}
   .skills-grid{
@@ -682,7 +786,65 @@
   <div class="wrap">
     <div class="kicker">SELECTED WORK</div>
     <h2 class="section-title">Selected Work</h2>
-    <p class="section-intro">A selection of infrastructure, building, and industrial projects demonstrating my experience in estimating, documentation, site coordination, and quality control.</p>
+    <p class="section-intro">A selection of multi-trade estimating, infrastructure, building, and industrial projects demonstrating my experience in quantity takeoff, documentation, site coordination, and quality control.</p>
+
+    <details class="remote-projects selected-remote-work" id="remote-estimating-projects">
+      <summary>
+        <span>Freelance Estimating Projects — View Projects</span>
+        <span class="summary-icon" aria-hidden="true">+</span>
+      </summary>
+
+      <div class="remote-project-grid">
+        <!-- To add a future project, duplicate one complete .remote-project-card article and edit its content. -->
+        <article class="remote-project-card">
+          <div class="remote-project-thumb">
+            <span class="project-code">RESIDENTIAL CONSTRUCTION</span>
+            <strong>Framing Takeoff</strong>
+          </div>
+          <div class="remote-project-body">
+            <h4>US Residential Framing Takeoff</h4>
+            <p>Prepared marked-up plans and organized quantities for wall, floor, and roof framing, including studs, plates, sheathing, joists, rimboard, blocking, and trusses.</p>
+            <div class="tag-row">
+              <span class="tag">PlanSwift</span>
+              <span class="tag">Excel</span>
+              <span class="tag">Lumber Takeoff</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="remote-project-card">
+          <div class="remote-project-thumb">
+            <span class="project-code">MULTIFAMILY CONSTRUCTION</span>
+            <strong>HVAC Takeoff</strong>
+          </div>
+          <div class="remote-project-body">
+            <h4>Multifamily Apartment HVAC Takeoff</h4>
+            <p>Prepared quantity takeoffs and marked-up mechanical plans covering FCUs, heat pumps, air systems, ductwork, grilles, dampers, and related accessories.</p>
+            <div class="tag-row">
+              <span class="tag">PlanSwift</span>
+              <span class="tag">Excel</span>
+              <span class="tag">HVAC</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="remote-project-card">
+          <div class="remote-project-thumb">
+            <span class="project-code">LANDSCAPE CONSTRUCTION</span>
+            <strong>Irrigation Takeoff</strong>
+          </div>
+          <div class="remote-project-body">
+            <h4>Landscape Irrigation Quantity Takeoff</h4>
+            <p>Measured and organized quantities for pipelines, drip lines, valves, fittings, reducers, clamps, and related irrigation materials.</p>
+            <div class="tag-row">
+              <span class="tag">PlanSwift</span>
+              <span class="tag">Excel</span>
+              <span class="tag">Irrigation</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </details>
 
     <div class="work-grid">
 
@@ -795,9 +957,17 @@
   <div class="wrap">
     <div class="kicker">PROFESSIONAL EXPERIENCE</div>
     <h2 class="section-title">Professional Experience</h2>
-    <p class="section-intro">Employment history and responsibilities. See Selected Work above for individual project deliverables.</p>
+    <p class="section-intro">Employment history, freelance estimating experience, and key responsibilities. See Selected Work above for individual civil and construction project deliverables.</p>
 
     <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <h3>Freelance Construction Estimator</h3>
+        <div class="timeline-org">Multi-Trade Remote Estimating</div>
+        <div class="timeline-date">September 2026 – Present</div>
+        <p>Provides remote quantity-takeoff and estimating support across multiple construction trades using PlanSwift, Microsoft Excel, and project-specific estimating workflows.</p>
+      </div>
+
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <h3>Engineer A</h3>
