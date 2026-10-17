@@ -578,16 +578,15 @@
   }
   .remote-project-thumb{
     min-height:104px;
-    padding:18px;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    gap:4px;
-    color:var(--white);
-    background:
-      linear-gradient(135deg,rgba(63,108,158,0.18),rgba(232,150,42,0.14)),
-      repeating-linear-gradient(0deg,transparent,transparent 17px,rgba(255,255,255,0.08) 18px),
-      var(--navy-deep);
+    aspect-ratio:16/9;
+    overflow:hidden;
+    background:var(--navy-deep);
+  }
+  .remote-project-thumb img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
   }
   .remote-project-thumb .project-code{
     font-family:var(--font-head);
@@ -920,8 +919,8 @@
         <!-- To add a future project, duplicate one complete .remote-project-card article and edit its content. -->
         <article class="remote-project-card">
           <div class="remote-project-thumb">
-            <span class="project-code">RESIDENTIAL CONSTRUCTION</span>
-            <strong>Framing Takeoff</strong>
+            <img src="Images/framing-takeoff.png"
+                 alt="Residential lumber takeoff using PlanSwift and Excel">
           </div>
           <div class="remote-project-body">
             <h4>US Residential Framing Takeoff</h4>
@@ -937,8 +936,8 @@
 
         <article class="remote-project-card">
           <div class="remote-project-thumb">
-            <span class="project-code">MULTIFAMILY CONSTRUCTION</span>
-            <strong>HVAC Takeoff</strong>
+            <img src="Images/hvac-takeoff.png"
+                 alt="Multifamily HVAC takeoff using PlanSwift and Excel">
           </div>
           <div class="remote-project-body">
             <h4>Multifamily Apartment HVAC Takeoff</h4>
@@ -954,8 +953,8 @@
 
         <article class="remote-project-card">
           <div class="remote-project-thumb">
-            <span class="project-code">LANDSCAPE CONSTRUCTION</span>
-            <strong>Irrigation Takeoff</strong>
+            <img src="Images/irrigation-takeoff.png"
+                 alt="Landscape irrigation takeoff using PlanSwift and Excel">
           </div>
           <div class="remote-project-body">
             <h4>Landscape Irrigation Quantity Takeoff</h4>
@@ -1302,7 +1301,7 @@
   let lastLightboxTrigger = null;
 
   const openLightbox = card => {
-    const image = card.querySelector('.work-thumb img');
+    const image = card.querySelector('.work-thumb img, .remote-project-thumb img');
     const projectTitle = card.querySelector('h3, h4')?.textContent || 'Selected Project';
     const category = card.querySelector('.work-cat, .project-code')?.textContent || 'Selected Work';
     const description = card.querySelector('.popup-details')?.textContent || card.querySelector('.desc, .remote-project-body p')?.textContent || '';
